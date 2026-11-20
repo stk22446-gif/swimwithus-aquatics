@@ -97,6 +97,96 @@ function clearCart() {
   showToast('Your shopping cart has been cleared.', 'info');
 }
 
+// Exact Business Shipping Configuration
+const SHIPPING_CONFIG = {
+  freeShippingThreshold: 1000,
+  standardShippingFee: 100,
+  // Configurable rule for exact ₹1,000 subtotal:
+  // Set to 'FREE' for free shipping, or 100 for standard shipping fee
+  exactThousandRule: 'FREE'
+};
+
+/**
+ * Calculate shipping charges strictly according to business rule:
+ * - Below ₹1,000: ₹100
+ * - Above ₹1,000: FREE
+ * - Exactly ₹1,000: Configurable (defaults to 'FREE')
+ */
+function calculateShipping(subtotal) {
+  const amt = Number(subtotal) || 0;
+  if (amt <= 0) {
+    return {
+      fee: 0,
+      label: '₹0',
+      isFree: false,
+      amountNeededForFree: SHIPPING_CONFIG.freeShippingThreshold
+    };
+  }
+
+  if (amt < SHIPPING_CONFIG.freeShippingThreshold) {
+    const diff = SHIPPING_CONFIG.freeShippingThreshold - amt;
+    return {
+      fee: SHIPPING_CONFIG.standardShippingFee,
+      label: `₹${SHIPPING_CONFIG.standardShippingFee}`,
+      isFree: false,
+      amountNeededForFree: diff
+    };
+  } else if (amt > SHIPPING_CONFIG.freeShippingThreshold) {
+    return {
+      fee: 0,
+      label: 'FREE',
+      isFree: true,
+      amountNeededForFree: 0
+    };
+  } else {
+    // Exactly ₹1,000 subtotal
+    if (SHIPPING_CONFIG.exactThousandRule === 'FREE') {
+      return {
+        fee: 0,
+        label: 'FREE',
+        isFree: true,
+        amountNeededForFree: 0,
+        isExactThreshold: true
+      };
+    } else {
+      return {
+        fee: SHIPPING_CONFIG.standardShippingFee,
+        label: `₹${SHIPPING_CONFIG.standardShippingFee}`,
+        isFree: false,
+        amountNeededForFree: 0,
+        isExactThreshold: true
+      };
+    }
+  }
+}
+
+/**
+ * Generate a unique sequential Order ID
+ * Format: SWA-YYYYMMDD-XXX (e.g. SWA-20261120-001)
+ */
+function generateOrderId() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const dateKey = `${year}${month}${day}`;
+
+  const counterKey = `swa_order_counter_${dateKey}`;
+  let count = 1;
+  try {
+    const existing = localStorage.getItem(counterKey);
+    if (existing) {
+      count = parseInt(existing, 10) + 1;
+    }
+    localStorage.setItem(counterKey, String(count));
+  } catch (e) {
+    count = Math.floor(Math.random() * 900) + 100;
+  }
+
+  const seq = String(count).padStart(3, '0');
+  return `SWA-${dateKey}-${seq}`;
+}
+
 // Calculate totals and check for unpriced items
 function calculateCartTotals() {
   const cart = getCart();
@@ -115,10 +205,16 @@ function calculateCartTotals() {
     }
   });
 
+  const shipping = calculateShipping(totalConfirmedPrice);
+  const finalPayableTotal = totalConfirmedPrice + shipping.fee;
+
   return {
     itemCount: totalItemCount,
     lineItemsCount: cart.length,
     totalConfirmedPrice,
+    subtotal: totalConfirmedPrice,
+    shipping,
+    finalPayableTotal,
     hasUnpricedItems,
     unpricedCount
   };
@@ -268,7 +364,139 @@ function showToast(message, type = 'info') {
   }, 3500);
 }
 
+/**
+ * Build formal WhatsApp Order Placement Message
+ * Conforms strictly to required format:
+ * - Order Header: 🐠 SWIMWITHUS AQUATICS
+ * - Order Prefix: SWA (e.g. SWA-20261120-001)
+ * - Customer Details (Name, Mobile, Email, Full Address, City, State, PIN, Notes)
+ * - Numbered items with variants, prices, subtotals, links
+ * - Subtotal, Shipping, Final Total
+ * - Payment Policy notice
+ */
+function buildWhatsAppOrderPlacementMessage(orderDetails) {
+  const {
+    orderId,
+    dateTimeStr,
+    orderDate,
+    customer = {},
+    items = [],
+    subtotal = 0,
+    shipping,
+    shippingFee,
+    isFreeShipping,
+    finalTotal,
+    total
+  } = orderDetails;
+
+  const displayDate = dateTimeStr || orderDate || new Date().toLocaleDateString('en-IN', {
+    day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true
+  });
+
+  const actualShipping = (shipping && typeof shipping.fee !== 'undefined') ? shipping : {
+    fee: typeof shippingFee === 'number' ? shippingFee : (isFreeShipping ? 0 : (subtotal >= 1000 ? 0 : 100)),
+    isFree: typeof isFreeShipping === 'boolean' ? isFreeShipping : (shippingFee === 0 || subtotal >= 1000)
+  };
+
+  const payableTotal = (typeof finalTotal === 'number') ? finalTotal : ((typeof total === 'number') ? total : (subtotal + actualShipping.fee));
+
+  const custMobile = customer.mobile || customer.phone || '';
+  const formattedMobile = custMobile ? (custMobile.startsWith('+91') ? custMobile : `+91 ${custMobile}`) : 'Not Provided';
+
+  const baseUrl = (typeof window !== 'undefined' && window.location && window.location.origin)
+    ? window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/')
+    : 'https://swimwithusaquatics.com/';
+
+  let text = `🐠 SWIMWITHUS AQUATICS — NEW ORDER PLACEMENT REQUEST\n`;
+  text += `════════════════════════════════════════\n`;
+  text += `📋 Order ID: ${orderId}\n`;
+  text += `📅 Date & Time: ${displayDate}\n`;
+  text += `════════════════════════════════════════\n\n`;
+
+  text += `👤 CUSTOMER & DELIVERY INFORMATION:\n`;
+  text += `• Full Name: ${customer.fullName || customer.name || 'Not Provided'}\n`;
+  text += `• Mobile Number: ${formattedMobile}\n`;
+  text += `• Email: ${customer.email || 'Not Provided'}\n`;
+  text += `• Delivery Address: ${customer.address || 'Not Provided'}\n`;
+  text += `• City: ${customer.city || 'Not Provided'}\n`;
+  text += `• State: ${customer.state || 'Not Provided'}\n`;
+  text += `• PIN Code: ${customer.pincode || customer.pin || 'Not Provided'}\n`;
+  if (customer.notes && customer.notes.trim()) {
+    text += `• Delivery Notes / Instructions: ${customer.notes.trim()}\n`;
+  }
+  text += `\n`;
+
+  text += `🛍️ ORDER ITEMS (${items.length} product${items.length === 1 ? '' : 's'}):\n`;
+  items.forEach((item, index) => {
+    const itemPrice = typeof item.price === 'number' ? item.price : 0;
+    const itemSubtotal = itemPrice * item.quantity;
+    text += `${index + 1}. *${item.name}*\n`;
+    if (item.model && item.model !== 'Standard' && item.model !== item.name) {
+      text += `   • Model / Variant: ${item.model}\n`;
+    }
+    if (item.brand) {
+      text += `   • Brand: ${item.brand}\n`;
+    }
+    text += `   • Quantity: ${item.quantity}\n`;
+    text += `   • Unit Price: ₹${itemPrice.toLocaleString('en-IN')}\n`;
+    text += `   • Product Subtotal: ₹${itemSubtotal.toLocaleString('en-IN')}\n`;
+    text += `   • Link: ${baseUrl}product-details.html?id=${encodeURIComponent(item.id)}\n\n`;
+  });
+
+  text += `────────────────────────────────────────\n`;
+  text += `💵 PAYMENT & TOTAL SUMMARY:\n`;
+  text += `• Product Subtotal: ₹${subtotal.toLocaleString('en-IN')}\n`;
+  if (actualShipping.isFree) {
+    text += `• Shipping Charges: FREE (${subtotal >= 1000 ? 'Order qualifies for Free Shipping' : 'Free Shipping applied'})\n`;
+  } else {
+    text += `• Shipping Charges: ₹${actualShipping.fee} (Standard Pan India Shipping)\n`;
+  }
+  text += `• Final Payable Total: ₹${payableTotal.toLocaleString('en-IN')}\n`;
+  text += `────────────────────────────────────────\n\n`;
+
+  text += `📌 PAYMENT INFORMATION & POLICY:\n`;
+  text += `• Cash on Delivery (COD) is not available for live livestock and bioactive habitats.\n`;
+  text += `• Orders are prepaid via UPI or Bank Transfer after product availability and shipping confirmation.\n`;
+  text += `• Customers must wait for order confirmation and payment instructions before making payment.\n`;
+  text += `• This WhatsApp order request is a confirmation request, not proof of payment.\n\n`;
+
+  text += `🏪 STORE & DISPATCH DETAILS:\n`;
+  text += `SwimWithUs Aquatics • Owner: Amit Kumar\n`;
+  text += `Address: House No. 320, Gali 19A, Swatantra Nagar, Narela, Delhi – 110040\n`;
+  text += `WhatsApp: +91 95604 48232 • Pan India Delivery\n`;
+  text += `Thank you for choosing SwimWithUs Aquatics!`;
+
+  return text;
+}
+
 // Initial badge update on load
 document.addEventListener('DOMContentLoaded', () => {
   updateCartBadges();
 });
+
+// Export for module systems or attach to window
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    getCart,
+    saveCart,
+    addToCart,
+    updateCartQuantity,
+    removeFromCart,
+    clearCart,
+    calculateCartTotals,
+    calculateShipping,
+    generateOrderId,
+    SHIPPING_CONFIG,
+    buildWhatsAppCartMessage,
+    buildSingleProductWhatsAppMessage,
+    buildWhatsAppOrderPlacementMessage,
+    openWhatsApp,
+    showToast,
+    updateCartBadges
+  };
+} else if (typeof window !== 'undefined') {
+  window.SHIPPING_CONFIG = SHIPPING_CONFIG;
+  window.calculateShipping = calculateShipping;
+  window.generateOrderId = generateOrderId;
+  window.buildWhatsAppOrderPlacementMessage = buildWhatsAppOrderPlacementMessage;
+}

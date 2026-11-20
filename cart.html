@@ -141,60 +141,69 @@
             <!-- Price Breakdown -->
             <div id="confirmedSubtotalContainer">
               <div class="cart-summary-row">
-                <span>Subtotal (Confirmed):</span>
-                <strong id="summarySubtotal" style="color: var(--color-teal); font-family: var(--font-mono);">₹0</strong>
+                <span>Subtotal:</span>
+                <strong id="summarySubtotal" style="color: var(--color-ink); font-family: var(--font-mono);">₹0</strong>
               </div>
             </div>
 
-            <div class="cart-summary-row">
-              <span>Pan India Delivery:</span>
-              <span style="color: var(--color-ink-secondary); font-size: 0.85rem;">Calculated on WhatsApp</span>
+            <div class="cart-summary-row" id="shippingRow">
+              <span>Pan India Shipping:</span>
+              <span id="summaryShipping" style="font-family: var(--font-mono); font-weight: 700; color: var(--color-ink);">Calculated at Checkout</span>
+            </div>
+
+            <!-- Shipping Incentive Box -->
+            <div id="shippingIncentiveBox" class="shipping-incentive-box hidden" style="margin-top: 0.85rem;">
+              <!-- Populated dynamically via JS -->
             </div>
 
             <!-- Warning if any item has unknown price -->
             <div class="unpriced-warning-box hidden" id="unpricedWarningBox">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;">
                 <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
               </svg>
               <div>
-                <strong>Some items require price confirmation.</strong>
-                <p style="margin-top: 3px; font-size: 0.75rem;">Your cart contains items whose prices are verified on WhatsApp based on latest inventory and shipment size.</p>
+                <strong>Price Confirmation Required</strong>
+                <p style="margin-top: 3px; font-size: 0.75rem; line-height: 1.45;">Your cart contains items whose prices are verified on WhatsApp. Enquire to confirm prices or remove them to proceed with checkout.</p>
               </div>
             </div>
 
             <!-- Grand Total Row -->
             <div class="cart-summary-row total-row" id="grandTotalRow">
-              <span>Estimated Total:</span>
+              <span>Payable Total:</span>
               <span id="summaryGrandTotal" style="color: var(--color-teal); font-family: var(--font-mono);">₹0</span>
             </div>
 
-            <!-- Customer Contact Pre-fill -->
-            <div style="display: flex; flex-direction: column; gap: 0.85rem; margin: 1.5rem 0;">
-              <div>
-                <label for="custNameInput" class="form-field-label">Your Name (Optional)</label>
-                <input type="text" id="custNameInput" class="form-input" placeholder="e.g. Rahul Sharma" />
-              </div>
-              <div>
-                <label for="custCityInput" class="form-field-label">City / Delivery Pincode (Optional)</label>
-                <input type="text" id="custCityInput" class="form-input" placeholder="e.g. Mumbai 400001" />
-              </div>
-              <div>
-                <label for="custNotesInput" class="form-field-label">Special Requests / Tank Specs</label>
-                <input type="text" id="custNotesInput" class="form-input" placeholder="e.g. Need extra biological ceramic rings" />
-              </div>
+            <!-- Checkout Action Buttons -->
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem;">
+              <!-- Proceed to Checkout Button -->
+              <a href="checkout.html" class="btn btn-primary btn-full btn-lg" id="proceedToCheckoutBtn" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <span>Proceed to Checkout</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+
+              <!-- WhatsApp Enquiry / Quick Order Button -->
+              <button type="button" class="btn btn-whatsapp btn-full" id="sendWhatsAppOrderBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z" />
+                </svg>
+                <span id="whatsAppBtnText">Quick WhatsApp Enquiry</span>
+              </button>
             </div>
 
-            <!-- Primary Action: WhatsApp Order Enquiry -->
-            <button type="button" class="btn btn-whatsapp btn-full btn-lg" id="sendWhatsAppOrderBtn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z" />
-              </svg>
-              <span>Transmit Order on WhatsApp</span>
-            </button>
+            <!-- Notice when Checkout is blocked due to unpriced items -->
+            <div id="checkoutDisabledNotice" class="hidden" style="margin-top: 0.85rem; padding: 0.75rem 0.85rem; background-color: #FEF3F2; border: 1px solid #FECDCA; border-radius: var(--radius-xs); font-size: 0.75rem; color: #B42318; line-height: 1.45;">
+              Checkout is paused because your cart contains items without confirmed prices. Please message Amit Kumar on WhatsApp above to get prices, or remove unpriced items to checkout immediately.
+            </div>
 
-            <p style="font-size: 0.75rem; color: var(--color-ink-muted); text-align: center; margin-top: 1rem; line-height: 1.5;">
-              Opens official WhatsApp chat with founder Amit Kumar (+91 95604 48232). No automatic card debit.
-            </p>
+            <!-- Free shipping policy reminder note -->
+            <div style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-hairline); font-size: 0.75rem; color: var(--color-ink-muted); line-height: 1.5;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; color: var(--color-ink); font-weight: 600;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="13" x="1" y="3" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Pan India Delivery Standard</span>
+              </div>
+              Orders below ₹1,000: ₹100 flat courier charge.<br>
+              Orders above ₹1,000: <strong style="color: var(--color-teal);">FREE Delivery</strong> across India.
+            </div>
           </div>
         </div>
 
@@ -299,13 +308,15 @@
       const emptyView = document.getElementById('emptyCartView');
       const countEl = document.getElementById('summaryItemCount');
       const subtotalEl = document.getElementById('summarySubtotal');
+      const shippingEl = document.getElementById('summaryShipping');
+      const shippingIncentiveEl = document.getElementById('shippingIncentiveBox');
       const grandTotalEl = document.getElementById('summaryGrandTotal');
       const unpricedWarning = document.getElementById('unpricedWarningBox');
       const clearBtn = document.getElementById('clearAllCartBtn');
       const sendWhatsAppBtn = document.getElementById('sendWhatsAppOrderBtn');
-      const custName = document.getElementById('custNameInput');
-      const custCity = document.getElementById('custCityInput');
-      const custNotes = document.getElementById('custNotesInput');
+      const whatsAppBtnText = document.getElementById('whatsAppBtnText');
+      const proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
+      const checkoutDisabledNotice = document.getElementById('checkoutDisabledNotice');
 
       function renderCartUI() {
         const cart = getCart();
@@ -367,20 +378,83 @@
         // Totals calculations
         const totals = calculateCartTotals();
         countEl.textContent = `${totals.itemCount} item${totals.itemCount === 1 ? '' : 's'}`;
+        subtotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')}`;
 
         if (totals.hasUnpricedItems) {
           unpricedWarning.classList.remove('hidden');
+
+          // Block checkout because item prices are unconfirmed
+          if (proceedToCheckoutBtn) {
+            proceedToCheckoutBtn.style.pointerEvents = 'none';
+            proceedToCheckoutBtn.style.opacity = '0.4';
+            proceedToCheckoutBtn.setAttribute('tabindex', '-1');
+            proceedToCheckoutBtn.setAttribute('aria-disabled', 'true');
+          }
+          if (checkoutDisabledNotice) {
+            checkoutDisabledNotice.classList.remove('hidden');
+          }
+          if (whatsAppBtnText) {
+            whatsAppBtnText.textContent = `Enquire Prices on WhatsApp (${totals.unpricedCount} unconfirmed)`;
+          }
+          if (shippingEl) {
+            shippingEl.textContent = 'Quote upon enquiry';
+            shippingEl.style.color = 'var(--color-ink-secondary)';
+          }
+          if (shippingIncentiveEl) {
+            shippingIncentiveEl.classList.add('hidden');
+          }
+
           if (totals.totalConfirmedPrice > 0) {
-            subtotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')}`;
             grandTotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')} + enquiry items`;
           } else {
-            subtotalEl.textContent = 'Enquire for Price';
             grandTotalEl.textContent = 'Enquire for Price';
           }
         } else {
           unpricedWarning.classList.add('hidden');
-          subtotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')}`;
-          grandTotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')}`;
+
+          // Enable checkout
+          if (proceedToCheckoutBtn) {
+            proceedToCheckoutBtn.style.pointerEvents = 'auto';
+            proceedToCheckoutBtn.style.opacity = '1';
+            proceedToCheckoutBtn.removeAttribute('tabindex');
+            proceedToCheckoutBtn.removeAttribute('aria-disabled');
+          }
+          if (checkoutDisabledNotice) {
+            checkoutDisabledNotice.classList.add('hidden');
+          }
+          if (whatsAppBtnText) {
+            whatsAppBtnText.textContent = 'Quick WhatsApp Enquiry';
+          }
+
+          // Shipping calculation display
+          if (shippingEl) {
+            if (totals.shipping.isFree) {
+              shippingEl.innerHTML = '<span class="shipping-badge-free">FREE</span>';
+            } else {
+              shippingEl.textContent = `₹${totals.shipping.fee}`;
+              shippingEl.style.color = 'var(--color-ink)';
+            }
+          }
+
+          // Shipping threshold incentive
+          if (shippingIncentiveEl) {
+            shippingIncentiveEl.classList.remove('hidden');
+            if (totals.shipping.isFree) {
+              shippingIncentiveEl.className = 'shipping-incentive-box qualified';
+              shippingIncentiveEl.innerHTML = `
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>You qualify for <strong>FREE Pan India Delivery</strong>!</span>
+              `;
+            } else {
+              shippingIncentiveEl.className = 'shipping-incentive-box';
+              shippingIncentiveEl.innerHTML = `
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span>Add <strong>₹${totals.shipping.amountNeededForFree.toLocaleString('en-IN')}</strong> more for <strong>FREE Delivery</strong></span>
+              `;
+            }
+          }
+
+          grandTotalEl.textContent = `₹${totals.finalPayableTotal.toLocaleString('en-IN')}`;
         }
       }
 
@@ -396,18 +470,11 @@
 
       if (sendWhatsAppBtn) {
         sendWhatsAppBtn.addEventListener('click', () => {
-          const customerInfo = {
-            name: custName ? custName.value.trim() : '',
-            city: custCity ? custCity.value.trim() : '',
-            notes: custNotes ? custNotes.value.trim() : ''
-          };
-
-          const message = buildWhatsAppCartMessage(customerInfo);
+          const message = buildWhatsAppCartMessage();
           if (!message) {
             showToast('Your cart is empty.', 'error');
             return;
           }
-
           openWhatsApp(message);
         });
       }

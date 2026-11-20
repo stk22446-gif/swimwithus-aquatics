@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout &bull; WhatsApp Order Placement — SwimWithUs Aquatics</title>
+  <meta name="description" content="Complete your aquarium equipment order with SwimWithUs Aquatics. Professional order placement directly on WhatsApp with Pan India insured delivery.">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Status Bar -->
+  <aside class="top-status-bar">
+    <div class="container status-bar-inner">
+      <div class="status-bar-left">
+        <span class="status-indicator">
+          <span class="status-indicator-dot"></span>
+          DELHI STORE &bull; DIRECT WHATSAPP CHECKOUT
+        </span>
+        <span>Orders are verified and confirmed directly with Amit Kumar on WhatsApp.</span>
+      </div>
+      <div class="status-bar-right">
+        <a href="https://wa.me/919560448232" target="_blank" rel="noopener noreferrer" class="status-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+          <span>WhatsApp: +91 95604 48232</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-masthead" aria-label="SwimWithUs Aquatics Home">
+        <div class="brand-monogram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/>
+          </svg>
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+          <span class="brand-meta">Delhi &bull; Pan India Shipping</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="header-nav">
+        <a href="index.html" class="header-nav-link">Home</a>
+        <a href="products.html" class="header-nav-link">Shop Collection</a>
+        <a href="cart.html" class="header-nav-link">Shopping Cart</a>
+        <a href="about.html" class="header-nav-link">About Us</a>
+        <a href="contact.html" class="header-nav-link">Contact</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <button type="button" class="header-action-btn" data-open-search aria-label="Open Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+
+        <a href="cart.html" class="header-action-btn" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-counter-chip" id="cartCount">0</span>
+        </a>
+
+        <button type="button" class="hamburger-trigger" id="hamburgerBtn" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="12" x2="20" y2="12"/><line x1="4" x2="20" y1="6" x2="6"/><line x1="4" x2="20" y1="18" x2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <div class="brand-title-wrap">
+        <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+      </div>
+      <button type="button" class="mobile-nav-close" id="mobileNavClose">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="products.html" class="mobile-nav-link">Shop All Products</a>
+      <a href="cart.html" class="mobile-nav-link">Shopping Cart</a>
+      <a href="about.html" class="mobile-nav-link">About Us</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Store</a>
+    </div>
+  </aside>
+
+  <!-- Order Progress Indicator -->
+  <nav class="checkout-progress-bar" aria-label="Order Progress">
+    <div class="container">
+      <ul class="progress-steps-list">
+        <li class="progress-step-item is-complete">
+          <a href="cart.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: inherit;">
+            <span class="progress-step-circle">✓</span>
+            <span>1. Shopping Cart</span>
+          </a>
+        </li>
+        <li class="progress-step-sep">&rarr;</li>
+        <li class="progress-step-item is-active" aria-current="step">
+          <span class="progress-step-circle">2</span>
+          <span>2. Delivery &amp; Customer Details</span>
+        </li>
+        <li class="progress-step-sep">&rarr;</li>
+        <li class="progress-step-item">
+          <span class="progress-step-circle">3</span>
+          <span>3. WhatsApp Confirmation</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Checkout Area -->
+  <main class="checkout-layout">
+    <div class="container">
+
+      <!-- Empty Cart Alert View -->
+      <div class="empty-results-box hidden" id="checkoutEmptyView" style="margin: 3rem auto; max-width: 600px;">
+        <svg class="empty-results-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <h2 class="empty-results-title">Your shopping cart is currently empty</h2>
+        <p class="empty-results-desc">You need at least one confirmed-price item in your cart to proceed with checkout.</p>
+        <a href="products.html" class="btn btn-primary btn-lg">Browse Catalogue</a>
+      </div>
+
+      <!-- Two-Column Checkout Layout -->
+      <div class="checkout-grid-split" id="checkoutMainGrid">
+
+        <!-- LEFT COLUMN: Customer Information & Delivery Address Form -->
+        <div class="checkout-form-col">
+          <form id="checkoutForm" novalidate>
+            
+            <!-- Card 1: Customer Details -->
+            <section class="checkout-card">
+              <span class="card-step-kicker">01 / RECIPIENT INFORMATION</span>
+              <h2 class="card-step-title">Customer Details</h2>
+
+              <div class="form-group">
+                <label for="custFullName" class="form-label">Full Name <span class="required-star">*</span></label>
+                <input type="text" id="custFullName" name="fullName" class="form-input-styled" placeholder="e.g. Rahul Sharma" autocomplete="name" required />
+                <div class="field-error-msg hidden" id="errFullName">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="#FFF"/></svg>
+                  <span>Please enter your full name (minimum 2 characters).</span>
+                </div>
+              </div>
+
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label for="custMobile" class="form-label">Mobile Number <span class="required-star">*</span></label>
+                  <div class="phone-input-wrap">
+                    <span class="phone-prefix-badge">+91</span>
+                    <input type="tel" id="custMobile" name="mobile" class="form-input-styled" placeholder="9876543210" maxlength="10" autocomplete="tel" required />
+                  </div>
+                  <div class="field-error-msg hidden" id="errMobile">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="#FFF"/></svg>
+                    <span>Please enter a valid 10-digit Indian mobile number.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="custEmail" class="form-label">Email Address <span class="required-star">*</span></label>
+                  <input type="email" id="custEmail" name="email" class="form-input-styled" placeholder="name@example.com" autocomplete="email" required />
+                  <div class="field-error-msg hidden" id="errEmail">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="#FFF"/></svg>
+                    <span>Please enter a valid email address format.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Card 2: Delivery Address -->
+            <section class="checkout-card">
+              <span class="card-step-kicker">02 / SHIPPING DESTINATION</span>
+              <h2 class="card-step-title">Delivery Address</h2>
+
+              <div class="form-group">
+                <label for="custAddress" class="form-label">Complete Street Address / House / Flat <span class="required-star">*</span></label>
+                <input type="text" id="custAddress" name="address" class="form-input-styled" placeholder="e.g. Flat 402, Lotus Tower, 12th Main Road, Near City Mall" autocomplete="street-address" required />
+                <div class="field-error-msg hidden" id="errAddress">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="#FFF"/></svg>
+                  <span>Please provide your complete delivery address (minimum 8 characters).</span>
+                </div>
+              </div>
+
+              <div class="form-row three-col">
+                <div class="form-group">
+                  <label for="custCity" class="form-label">City / Town <span class="required-star">*</span></label>
+                  <input type="text" id="custCity" name="city" class="form-input-styled" placeholder="e.g. Mumbai" autocomplete="address-level2" required />
+                  <div class="field-error-msg hidden" id="errCity">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="#FFF"/></svg>
+                    <span>Please enter your city.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="custState" class="form-label">State / UT <span class="required-star">*</span></label>
+                  <select id="custState" name="state" class="form-input-styled" style="cursor: pointer;" required>
+                    <option value="">-- Select State --</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Ladakh">Ladakh</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Puducherry">Puducherry</option>
+                  </select>
+                  <div class="field-error-msg hidden" id="errState">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="#FFF"/></svg>
+                    <span>Please select your state/UT.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="custPincode" class="form-label">PIN Code <span class="required-star">*</span></label>
+                  <input type="text" id="custPincode" name="pincode" class="form-input-styled" placeholder="110040" maxlength="6" autocomplete="postal-code" required />
+                  <div class="field-error-msg hidden" id="errPincode">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12" stroke="#FFF" stroke-width="2"/><circle cx="12" cy="16" r="1" fill="#FFF"/></svg>
+                    <span>Must be a valid 6-digit PIN code.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="custNotes" class="form-label">Special Delivery Instructions / Tank Specs (Optional)</label>
+                <input type="text" id="custNotes" name="notes" class="form-input-styled" placeholder="e.g. Call before delivery / Include extra bio ceramic rings" />
+              </div>
+            </section>
+          </form>
+        </div>
+
+        <!-- RIGHT COLUMN: Order Summary, Shipping & WhatsApp Checkout -->
+        <div class="checkout-summary-col">
+          <div class="checkout-summary-card">
+            <div class="summary-heading-strip">
+              <h3>Order Summary</h3>
+              <span id="summaryBadgeCount" class="mono-chip teal">0 Items</span>
+            </div>
+
+            <!-- Unpriced items warning blocker (if any item lacks confirmed price) -->
+            <div class="unpriced-block-card hidden" id="unpricedBlockerCard">
+              <h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <span>Price Confirmation Required</span>
+              </h4>
+              <p id="unpricedBlockerMsg">
+                Your cart contains equipment whose prices must be verified before automated checkout. Please enquire on WhatsApp for custom pricing or remove them to proceed.
+              </p>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button type="button" class="btn btn-sm btn-secondary" onclick="window.location.href='cart.html'">Edit Cart</button>
+                <button type="button" class="btn btn-sm btn-whatsapp" id="btnEnquireUnpriced">Enquire on WhatsApp</button>
+              </div>
+            </div>
+
+            <!-- Line Items List -->
+            <div class="summary-items-scroll" id="checkoutItemsList">
+              <!-- Dynamically populated line items -->
+            </div>
+
+            <!-- Shipping Incentive Callout Banner -->
+            <div class="shipping-incentive-box" id="shippingIncentiveBanner">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+                <rect width="16" height="13" x="1" y="3" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+              <span id="shippingIncentiveText">Free Pan India Delivery on orders above ₹1,000</span>
+            </div>
+
+            <!-- Calculations Breakdown -->
+            <div style="margin-bottom: 1.25rem;">
+              <div class="summary-calc-row">
+                <span>Product Subtotal</span>
+                <strong id="calcSubtotalDisplay" style="font-family: var(--font-mono); color: var(--color-ink);">₹0</strong>
+              </div>
+
+              <div class="summary-calc-row">
+                <span>Shipping Charges</span>
+                <span id="calcShippingDisplay" style="font-family: var(--font-mono); font-weight: 700; color: var(--color-ink);">₹100</span>
+              </div>
+
+              <div class="summary-calc-row total-highlight">
+                <span>Final Payable Total</span>
+                <span class="total-val" id="calcFinalTotalDisplay">₹0</span>
+              </div>
+            </div>
+
+            <!-- Payment Policy Notice (Mandatory Business Requirement) -->
+            <div class="payment-policy-box">
+              <div class="payment-policy-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+                <span>Payment Information</span>
+              </div>
+              <ul class="payment-policy-list">
+                <li>Cash on Delivery (COD) is not available for live livestock and bioactive habitats.</li>
+                <li>Orders are prepaid via UPI or Bank Transfer after product availability and shipping confirmation.</li>
+                <li>Customers must wait for order confirmation and payment instructions before making payment.</li>
+                <li>This WhatsApp order request is a confirmation request, not proof of payment.</li>
+              </ul>
+            </div>
+
+            <!-- Prominent WhatsApp Order Button -->
+            <button type="button" class="btn-whatsapp-order" id="btnPlaceOrderWhatsApp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+              </svg>
+              <span>Place Order on WhatsApp</span>
+            </button>
+
+            <p style="font-size: 0.72rem; color: var(--color-ink-muted); text-align: center; margin-top: 0.85rem; line-height: 1.45;">
+              Submitting opens official WhatsApp chat with founder Amit Kumar (+91 95604 48232). Safe &amp; verified.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Order Placement Success & Handoff Modal -->
+  <div class="order-modal-backdrop" id="orderSuccessModal" role="dialog" aria-modal="true" aria-labelledby="modalOrderTitle">
+    <div class="order-success-modal">
+      <div class="success-icon-badge">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <span class="editorial-kicker" style="margin-bottom: 0.25rem;">ORDER TRANSMITTED</span>
+      <h2 id="modalOrderTitle" style="font-family: var(--font-sans); font-size: 1.5rem; font-weight: 800; color: var(--color-ink); margin-bottom: 0.5rem;">
+        Order Forwarded to WhatsApp
+      </h2>
+      <p style="font-size: 0.875rem; color: var(--color-ink-secondary); line-height: 1.6; max-width: 460px; margin: 0 auto;">
+        Your order request has been compiled and sent to founder Amit Kumar on WhatsApp (+91 95604 48232).
+      </p>
+
+      <div>
+        <span class="order-id-display-pill" id="modalOrderId">SWA-20261120-001</span>
+      </div>
+
+      <div style="background-color: var(--color-canvas-subtle); border: 1px solid var(--border-hairline); border-radius: var(--radius-xs); padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.8125rem; text-align: left; line-height: 1.6;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+          <span style="color: var(--color-ink-secondary);">Recipient:</span>
+          <strong id="modalCustName" style="color: var(--color-ink);">-</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+          <span style="color: var(--color-ink-secondary);">Delivery Destination:</span>
+          <strong id="modalCustCity" style="color: var(--color-ink);">-</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-light); padding-top: 0.35rem;">
+          <span style="color: var(--color-ink-secondary);">Payable Total:</span>
+          <strong id="modalOrderTotal" style="color: var(--color-teal); font-size: 1.05rem;">-</strong>
+        </div>
+      </div>
+
+      <p style="font-size: 0.78125rem; color: var(--color-ink-secondary); line-height: 1.55; margin-bottom: 1.75rem;">
+        Amit Kumar will review inventory availability, confirm the transit schedule, and provide official UPI / Bank Transfer payment instructions on WhatsApp.
+      </p>
+
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-secondary">Return Home</a>
+        <a href="products.html" class="btn btn-primary">Continue Browsing Collection</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-masthead" style="margin-bottom: 1.25rem;">
+            <div class="brand-monogram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/></svg>
+            </div>
+            <div class="brand-title-wrap">
+              <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+            </div>
+          </a>
+          <p class="footer-lead-text">
+            Serving hobbyists across India with genuine aquarium hardware, top sump filtration, canister units, and aquascaping essentials.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Navigation</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="products.html">All Products</a></li>
+            <li class="footer-nav-item"><a href="cart.html">Shopping Cart</a></li>
+            <li class="footer-nav-item"><a href="about.html">About Us</a></li>
+            <li class="footer-nav-item"><a href="contact.html">Contact Store</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Policies</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li class="footer-nav-item"><a href="return-policy.html">Return &amp; Refund Policy</a></li>
+            <li class="footer-nav-item"><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+            <li class="footer-nav-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Location</h4>
+          <div class="footer-contact-block">
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>House No. 320, Gali 19A, Swatantra Nagar, Narela, Delhi – 110040</span>
+            </div>
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/919560448232">+91 95604 48232</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal-bar">
+        <p>&copy; <span id="currentYear">2026</span> SwimWithUs Aquatics. Owner: Amit Kumar.</p>
+        <div class="footer-legal-links">
+          <a href="shipping-policy.html">Pan India Delivery</a>
+          <a href="return-policy.html">Return Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Search Catalogue">
+    <div class="search-modal-header">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="search-modal-input" id="globalSearchInput" placeholder="Search product name, model (e.g. AQ-16H)..." autocomplete="off">
+      <button type="button" class="search-modal-close" id="searchModalClose">&times;</button>
+    </div>
+    <div class="search-modal-body" id="globalSearchResults"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
