@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — SwimWithUs Aquatics</title>
+  <meta name="description" content="Learn about SwimWithUs Aquatics, founded by Amit Kumar in Narela, Delhi. Discover our mission to provide authentic aquarium equipment and accessories across India.">
+  
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Status Bar -->
+  <aside class="top-status-bar">
+    <div class="container status-bar-inner">
+      <div class="status-bar-left">
+        <span class="status-indicator">
+          <span class="status-indicator-dot"></span>
+          DELHI STORE &bull; DISPATCHING NATIONWIDE
+        </span>
+        <span>Curated aquarium hardware, precision filtration &amp; planted aquascaping equipment.</span>
+      </div>
+      <div class="status-bar-right">
+        <a href="https://wa.me/919560448232" target="_blank" rel="noopener noreferrer" class="status-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+          <span>WhatsApp: +91 95604 48232</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-masthead">
+        <div class="brand-monogram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/>
+          </svg>
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+          <span class="brand-meta">Delhi &bull; Pan India Shipping</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="index.html" class="header-nav-link">Home</a>
+        <a href="products.html" class="header-nav-link">Shop Collection</a>
+        <a href="index.html#categories" class="header-nav-link">Categories</a>
+        <a href="about.html" class="header-nav-link active">About Us</a>
+        <a href="contact.html" class="header-nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="header-action-btn" data-open-search aria-label="Open Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+
+        <a href="cart.html" class="header-action-btn" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-counter-chip" id="cartCount">0</span>
+        </a>
+
+        <button type="button" class="hamburger-trigger" id="hamburgerBtn" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="12" x2="20" y2="12"/><line x1="4" x2="20" y1="6" x2="6"/><line x1="4" x2="20" y1="18" x2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <div class="brand-title-wrap">
+        <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+      </div>
+      <button type="button" class="mobile-nav-close" id="mobileNavClose">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="products.html" class="mobile-nav-link">Shop All Products</a>
+      <a href="cart.html" class="mobile-nav-link">Shopping Cart</a>
+      <a href="about.html" class="mobile-nav-link active">About Us</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Store</a>
+    </div>
+  </aside>
+
+  <!-- Inner Page Hero -->
+  <section class="inner-page-hero">
+    <div class="container">
+      <div class="inner-hero-header">
+        <span class="editorial-kicker">01 / STORE IDENTITY &bull; FOUNDER PHILOSOPHY</span>
+        <h1 class="editorial-title">About SwimWithUs Aquatics</h1>
+        <p class="editorial-subtitle">
+          Dedicated to supporting aquarium enthusiasts, hobbyists, and professional aquascapers across India with verified hardware and dependable advice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <article class="prose-editorial-card">
+      <h2>Welcome to SwimWithUs Aquatics</h2>
+      <p>
+        Founded and managed by <strong>Amit Kumar</strong>, SwimWithUs Aquatics is an Indian aquarium specialty supplier based in Swatantra Nagar, Narela, Delhi. We started with a clear, singular vision: to make high-quality, genuine aquarium equipment, filtration technology, LED lighting, and aquascaping materials easily accessible and reliably delivered to fishkeepers throughout India.
+      </p>
+
+      <h2>Our Philosophy: Authentic Hardware for Thriving Aquariums</h2>
+      <p>
+        An aquarium is a living, breathing ecosystem. Whether maintaining a desktop planted nano tank with show bettas or managing a 500-liter monster community aquarium, water quality, circulation, and reliable temperature control determine the health and longevity of your aquatic life.
+      </p>
+      <p>
+        At SwimWithUs Aquatics, we believe hobbyists should never have to gamble on counterfeit or subpar equipment. We work directly with established manufacturers and verified importers such as <strong>SOBO, SUNSUN, Minjiang, Seachem, ADA, SISO, Bluepet, and API</strong> to bring genuine products to your doorstep.
+      </p>
+
+      <h2>Comprehensive Product Catalogue</h2>
+      <p>Our store provides across 31 specialized categories:</p>
+      <ul>
+        <li><strong>Advanced Filtration Systems:</strong> Top sump filters, slim hang-on-back units, quiet internal power filters, dual sponge filters, and multi-stage external canister filters with integrated UV clarifiers.</li>
+        <li><strong>Aquarium Lighting:</strong> Professional hanging full-spectrum WRGB fixtures for high-tech planted aquascapes, compact COB clip lights, tanning tubes, and app-controlled Wi-Fi luminaires.</li>
+        <li><strong>Aeration &amp; Flow:</strong> Whisper-silent single and dual outlet air pumps, portable battery air units, wave makers, and fine ceramic micro-diffuser air stones.</li>
+        <li><strong>Water Care &amp; Nutrition:</strong> Water conditioners, live nitrifying bacteria, parasite medications, and premium pellet foods from Optimum, Hikari, and Toyaa.</li>
+        <li><strong>Aquascaping Hardscape:</strong> Natural Ohko dragon rock, black lava stone, nutrient-rich ADA Amazonia soils, and sculptural spider driftwood.</li>
+      </ul>
+
+      <h2>Personalized Consultation &amp; Pan India Delivery</h2>
+      <p>
+        Unlike automated marketplaces where you cannot speak with anyone who understands fishkeeping, SwimWithUs Aquatics operates with personal accountability. When you message us on WhatsApp (+91 95604 48232), you connect directly with Amit Kumar. We verify product compatibility with your tank dimensions, advise on proper flow rates, and provide tracking until your parcel is delivered safely.
+      </p>
+
+      <h2>Store Address &amp; Contact</h2>
+      <p>
+        <strong>SwimWithUs Aquatics</strong><br>
+        Owner: Amit Kumar<br>
+        House No. 320, Gali 19A, Swatantra Nagar, Narela, Delhi – 110040, India.<br>
+        WhatsApp: <a href="https://wa.me/919560448232" style="color: var(--color-teal); font-weight: 700;">+91 95604 48232</a><br>
+        Email: <a href="mailto:swimwithusaquatics@gmail.com" style="color: var(--color-teal); font-weight: 700;">swimwithusaquatics@gmail.com</a><br>
+        Instagram: <a href="https://www.instagram.com/swimwithusaquatics/" target="_blank" rel="noopener noreferrer" style="color: var(--color-teal); font-weight: 700;">@swimwithusaquatics</a>
+      </p>
+    </article>
+  </main>
+
+  <!-- Editorial Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-masthead" style="margin-bottom: 1.25rem;">
+            <div class="brand-monogram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/></svg>
+            </div>
+            <div class="brand-title-wrap">
+              <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+            </div>
+          </a>
+          <p class="footer-lead-text">
+            Serving hobbyists across India with genuine aquarium hardware, top sump filtration, canister units, and aquascaping essentials.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Navigation</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="products.html">All Products</a></li>
+            <li class="footer-nav-item"><a href="cart.html">Shopping Cart</a></li>
+            <li class="footer-nav-item"><a href="about.html">About Us</a></li>
+            <li class="footer-nav-item"><a href="contact.html">Contact Store</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Policies</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li class="footer-nav-item"><a href="return-policy.html">Return &amp; Refund Policy</a></li>
+            <li class="footer-nav-item"><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+            <li class="footer-nav-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Location</h4>
+          <div class="footer-contact-block">
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>House No. 320, Gali 19A, Swatantra Nagar, Narela, Delhi – 110040</span>
+            </div>
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/919560448232">+91 95604 48232</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal-bar">
+        <p>&copy; <span id="currentYear">2026</span> SwimWithUs Aquatics. Owner: Amit Kumar.</p>
+        <div class="footer-legal-links">
+          <a href="shipping-policy.html">Pan India Delivery</a>
+          <a href="return-policy.html">Return Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Search Catalogue">
+    <div class="search-modal-header">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="search-modal-input" id="globalSearchInput" placeholder="Search product name, model (e.g. AQ-16H)..." autocomplete="off">
+      <button type="button" class="search-modal-close" id="searchModalClose">&times;</button>
+    </div>
+    <div class="search-modal-body" id="globalSearchResults"></div>
+  </div>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

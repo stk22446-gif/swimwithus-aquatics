@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details — SwimWithUs Aquatics</title>
+  <meta name="description" content="View detailed specifications, flow rate, and order enquiry options for aquarium products at SwimWithUs Aquatics. Pan India delivery.">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Status Bar -->
+  <aside class="top-status-bar">
+    <div class="container status-bar-inner">
+      <div class="status-bar-left">
+        <span class="status-indicator">
+          <span class="status-indicator-dot"></span>
+          DELHI STORE &bull; DISPATCHING NATIONWIDE
+        </span>
+        <span>Custom shockproof packaging on all aquarium electronics, glassware &amp; filtration.</span>
+      </div>
+      <div class="status-bar-right">
+        <a href="https://wa.me/919560448232" target="_blank" rel="noopener noreferrer" class="status-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+          <span>WhatsApp: +91 95604 48232</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-masthead">
+        <div class="brand-monogram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/>
+          </svg>
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+          <span class="brand-meta">Delhi &bull; Pan India Shipping</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="header-nav">
+        <a href="index.html" class="header-nav-link">Home</a>
+        <a href="products.html" class="header-nav-link active">Shop Collection</a>
+        <a href="index.html#categories" class="header-nav-link">Categories</a>
+        <a href="about.html" class="header-nav-link">About Us</a>
+        <a href="contact.html" class="header-nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button type="button" class="header-action-btn" data-open-search aria-label="Open Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+
+        <a href="cart.html" class="header-action-btn" aria-label="Shopping Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-counter-chip" id="cartCount">0</span>
+        </a>
+
+        <button type="button" class="hamburger-trigger" id="hamburgerBtn" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="12" x2="20" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <div class="brand-title-wrap">
+        <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+      </div>
+      <button type="button" class="mobile-nav-close" id="mobileNavClose">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="products.html" class="mobile-nav-link active">Shop All Products</a>
+      <a href="cart.html" class="mobile-nav-link">Shopping Cart</a>
+      <a href="about.html" class="mobile-nav-link">About Us</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Store</a>
+    </div>
+  </aside>
+
+  <!-- Product Details Content -->
+  <main class="product-detail-layout">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="detail-breadcrumbs" aria-label="Breadcrumbs" id="breadcrumbTrail">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="products.html">Shop</a>
+        <span>/</span>
+        <span id="breadcrumbCategory">Category</span>
+        <span>/</span>
+        <span id="breadcrumbProduct" style="color: var(--color-ink); font-weight: 700;">Product</span>
+      </nav>
+
+      <!-- Main Product View -->
+      <div class="detail-showcase-grid" id="productDetailContainer">
+        <!-- Left: Image Gallery -->
+        <div class="detail-gallery-box">
+          <div class="detail-gallery-main">
+            <img id="mainGalleryImg" src="" alt="Aquarium Product Image" />
+          </div>
+          <div class="detail-gallery-thumbs" id="galleryThumbsContainer">
+            <!-- Thumbnails rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Right: Information & Action -->
+        <div class="detail-info-box">
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.85rem; flex-wrap: wrap;">
+            <span class="mono-chip" id="detailBrandBadge">Brand</span>
+            <span class="mono-chip teal hidden" id="detailFlowBadge">⚡ Flow Rate</span>
+            <span class="mono-chip">Pan India Dispatch</span>
+          </div>
+
+          <h1 class="detail-headline" id="detailTitle">Product Title</h1>
+
+          <div class="detail-meta-row">
+            <div>Department: <strong id="detailCategory">Filters</strong></div>
+            <div id="detailModelItem">Model: <strong id="detailModel">Standard</strong></div>
+            <div>Transit: <strong style="color: var(--color-teal);">Insured Courier</strong></div>
+          </div>
+
+          <!-- Price Display Area -->
+          <div class="detail-price-panel" id="detailPriceBox">
+            <!-- Confirmed price or enquiry card -->
+          </div>
+
+          <!-- Description -->
+          <p id="detailDescription" class="detail-prose-desc">
+            Loading product description...
+          </p>
+
+          <!-- Action Controls -->
+          <div class="detail-cta-row">
+            <div class="quantity-stepper">
+              <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">&minus;</button>
+              <input type="number" id="detailQtyInput" class="qty-input" value="1" min="1" max="99" />
+              <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">&plus;</button>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-lg" id="detailAddToCartBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+
+            <button type="button" class="btn btn-whatsapp btn-lg" id="detailWhatsAppBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z" />
+              </svg>
+              <span>WhatsApp Enquiry</span>
+            </button>
+          </div>
+
+          <!-- Specifications Table -->
+          <div style="background-color: #FFFFFF; border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); padding: 1.5rem; margin-top: 1rem;">
+            <h3 style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-ink); margin-bottom: 1rem;">
+              Technical Specifications
+            </h3>
+            <table class="specs-table" id="detailSpecsTable">
+              <!-- Dynamically populated rows -->
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Related Products Section -->
+      <section style="margin-top: 5rem; padding-top: 3.5rem; border-top: 1px solid var(--border-hairline);">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 2rem;">
+          <div>
+            <span class="editorial-kicker">CURATED COMPLEMENTS</span>
+            <h2 class="editorial-title" style="font-size: 1.75rem;">Related Department Equipment</h2>
+          </div>
+          <a href="products.html" class="btn-text" id="viewMoreCategoryBtn">View Category &rarr;</a>
+        </div>
+        <div class="products-grid" id="relatedProductsGrid">
+          <!-- Populated from same category via createProductCardHtml -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Editorial Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-masthead" style="margin-bottom: 1.25rem;">
+            <div class="brand-monogram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/></svg>
+            </div>
+            <div class="brand-title-wrap">
+              <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+            </div>
+          </a>
+          <p class="footer-lead-text">
+            Serving hobbyists across India with genuine aquarium hardware, top sump filtration, canister units, and aquascaping essentials.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Navigation</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="products.html">All Products</a></li>
+            <li class="footer-nav-item"><a href="cart.html">Shopping Cart</a></li>
+            <li class="footer-nav-item"><a href="about.html">About Us</a></li>
+            <li class="footer-nav-item"><a href="contact.html">Contact Store</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Policies</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li class="footer-nav-item"><a href="return-policy.html">Return &amp; Refund Policy</a></li>
+            <li class="footer-nav-item"><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+            <li class="footer-nav-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Location</h4>
+          <div class="footer-contact-block">
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>House No. 320, Gali 19A, Swatantra Nagar, Narela, Delhi – 110040</span>
+            </div>
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/919560448232">+91 95604 48232</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal-bar">
+        <p>&copy; <span id="currentYear">2026</span> SwimWithUs Aquatics. Owner: Amit Kumar.</p>
+        <div class="footer-legal-links">
+          <a href="shipping-policy.html">Pan India Delivery</a>
+          <a href="return-policy.html">Return Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Search Catalogue">
+    <div class="search-modal-header">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="search-modal-input" id="globalSearchInput" placeholder="Search product name, model (e.g. AQ-16H)..." autocomplete="off">
+      <button type="button" class="search-modal-close" id="searchModalClose">&times;</button>
+    </div>
+    <div class="search-modal-body" id="globalSearchResults"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Product Details Controller -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof PRODUCTS_DATA === 'undefined') return;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+
+      let product = PRODUCTS_DATA.find(p => p.id === productId);
+      if (!product) {
+        product = PRODUCTS_DATA[0]; // Fallback to first product
+      }
+
+      // Update Page Meta
+      document.title = `${product.name} — SwimWithUs Aquatics`;
+
+      // Breadcrumbs
+      const bCat = document.getElementById('breadcrumbCategory');
+      const bProd = document.getElementById('breadcrumbProduct');
+      if (bCat) bCat.textContent = product.category;
+      if (bProd) bProd.textContent = product.name;
+
+      // Badges
+      const brandBadge = document.getElementById('detailBrandBadge');
+      const flowBadge = document.getElementById('detailFlowBadge');
+      if (brandBadge) brandBadge.textContent = product.brand || 'SwimWithUs';
+      if (flowBadge) {
+        if (product.flowRate) {
+          flowBadge.textContent = `⚡ ${product.flowRate}`;
+          flowBadge.classList.remove('hidden');
+        } else {
+          flowBadge.classList.add('hidden');
+        }
+      }
+
+      // Title & Meta
+      document.getElementById('detailTitle').textContent = product.name;
+      document.getElementById('detailCategory').textContent = product.category;
+
+      const modelItem = document.getElementById('detailModelItem');
+      const modelVal = document.getElementById('detailModel');
+      if (product.model && product.model !== 'Standard') {
+        modelVal.textContent = product.model;
+        modelItem.style.display = 'block';
+      } else {
+        modelItem.style.display = 'none';
+      }
+
+      // Description
+      document.getElementById('detailDescription').textContent = product.description || 'Professional aquarium equipment designed for reliability and biological balance.';
+
+      // Price Panel
+      const priceBox = document.getElementById('detailPriceBox');
+      const hasPrice = typeof product.price === 'number' && !isNaN(product.price);
+
+      if (hasPrice) {
+        priceBox.innerHTML = `
+          <div class="detail-price-num">₹${product.price.toLocaleString('en-IN')}</div>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-teal); text-transform: uppercase;">Confirmed Retail Price &bull; Taxes Included</span>
+        `;
+      } else {
+        priceBox.innerHTML = `
+          <div class="detail-enquire-card">
+            <h4>Enquire for Price &amp; Stock</h4>
+            <p>Pricing for this specialized equipment is verified on WhatsApp based on real-time stock and logistics.</p>
+          </div>
+        `;
+      }
+
+      // Gallery Images
+      const mainImg = document.getElementById('mainGalleryImg');
+      const thumbsContainer = document.getElementById('galleryThumbsContainer');
+      const images = (product.images && product.images.length > 0)
+        ? product.images
+        : ['https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?auto=format&fit=crop&w=800&q=80'];
+
+      mainImg.src = images[0];
+      mainImg.alt = product.name;
+
+      let thumbsHtml = '';
+      images.forEach((img, idx) => {
+        thumbsHtml += `
+          <button type="button" class="detail-thumb-trigger ${idx === 0 ? 'is-active' : ''}" data-src="${img}" aria-label="Product thumbnail ${idx + 1}">
+            <img src="${img}" alt="${escapeHtml(product.name)} thumbnail" />
+          </button>
+        `;
+      });
+      thumbsContainer.innerHTML = thumbsHtml;
+
+      const thumbBtns = thumbsContainer.querySelectorAll('.detail-thumb-trigger');
+      thumbBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          thumbBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          mainImg.src = btn.getAttribute('data-src');
+        });
+      });
+
+      // Specifications Table
+      const specsTable = document.getElementById('detailSpecsTable');
+      let specsHtml = '';
+
+      if (product.brand) specsHtml += `<tr><th>Brand</th><td>${escapeHtml(product.brand)}</td></tr>`;
+      if (product.model) specsHtml += `<tr><th>Model</th><td>${escapeHtml(product.model)}</td></tr>`;
+      if (product.category) specsHtml += `<tr><th>Category</th><td>${escapeHtml(product.category)}</td></tr>`;
+      if (product.flowRate) specsHtml += `<tr><th>Flow Rate</th><td>${escapeHtml(product.flowRate)}</td></tr>`;
+
+      if (product.specifications && typeof product.specifications === 'object') {
+        Object.entries(product.specifications).forEach(([k, v]) => {
+          if (v) specsHtml += `<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(String(v))}</td></tr>`;
+        });
+      }
+
+      specsHtml += `<tr><th>Dispatch</th><td>Pan India via Express Courier</td></tr>`;
+      specsTable.innerHTML = specsHtml;
+
+      // Quantity Controls
+      const qtyInput = document.getElementById('detailQtyInput');
+      const minusBtn = document.getElementById('qtyMinus');
+      const plusBtn = document.getElementById('qtyPlus');
+
+      minusBtn.addEventListener('click', () => {
+        let v = parseInt(qtyInput.value, 10) || 1;
+        if (v > 1) qtyInput.value = v - 1;
+      });
+
+      plusBtn.addEventListener('click', () => {
+        let v = parseInt(qtyInput.value, 10) || 1;
+        if (v < 99) qtyInput.value = v + 1;
+      });
+
+      // Add to Cart Action
+      const addBtn = document.getElementById('detailAddToCartBtn');
+      addBtn.addEventListener('click', () => {
+        const qty = parseInt(qtyInput.value, 10) || 1;
+        addToCart(product.id, qty);
+      });
+
+      // Direct WhatsApp Action
+      const waBtn = document.getElementById('detailWhatsAppBtn');
+      waBtn.addEventListener('click', () => {
+        const qty = parseInt(qtyInput.value, 10) || 1;
+        const msg = buildSingleProductWhatsAppMessage(product, qty);
+        openWhatsApp(msg);
+      });
+
+      // Related Products (Same category, up to 4 items)
+      const relatedGrid = document.getElementById('relatedProductsGrid');
+      const viewMoreBtn = document.getElementById('viewMoreCategoryBtn');
+      if (viewMoreBtn) {
+        viewMoreBtn.href = `products.html?category=${encodeURIComponent(product.categorySlug || '')}`;
+      }
+
+      const related = PRODUCTS_DATA.filter(p => p.categorySlug === product.categorySlug && p.id !== product.id).slice(0, 4);
+      let relatedHtml = '';
+      if (related.length > 0) {
+        related.forEach(p => {
+          relatedHtml += createProductCardHtml(p);
+        });
+      } else {
+        // Fallback to general featured items
+        PRODUCTS_DATA.slice(0, 4).forEach(p => {
+          relatedHtml += createProductCardHtml(p);
+        });
+      }
+      relatedGrid.innerHTML = relatedHtml;
+    });
+  </script>
+</body>
+</html>

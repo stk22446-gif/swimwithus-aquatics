@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart &bull; Order Enquiry — SwimWithUs Aquatics</title>
+  <meta name="description" content="Review your selected aquarium filters, lighting, and accessories. Send your order enquiry directly to SwimWithUs Aquatics on WhatsApp for instant confirmation.">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Status Bar -->
+  <aside class="top-status-bar">
+    <div class="container status-bar-inner">
+      <div class="status-bar-left">
+        <span class="status-indicator">
+          <span class="status-indicator-dot"></span>
+          OFFICIAL WHATSAPP CHECKOUT &bull; DELIVERED PAN INDIA
+        </span>
+        <span>Orders are reviewed and confirmed directly with Amit Kumar on WhatsApp.</span>
+      </div>
+      <div class="status-bar-right">
+        <a href="https://wa.me/919560448232" target="_blank" rel="noopener noreferrer" class="status-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+          <span>WhatsApp: +91 95604 48232</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-masthead">
+        <div class="brand-monogram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/>
+          </svg>
+        </div>
+        <div class="brand-title-wrap">
+          <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+          <span class="brand-meta">Delhi &bull; Pan India Shipping</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="header-nav">
+        <a href="index.html" class="header-nav-link">Home</a>
+        <a href="products.html" class="header-nav-link">Shop Collection</a>
+        <a href="index.html#categories" class="header-nav-link">Categories</a>
+        <a href="about.html" class="header-nav-link">About Us</a>
+        <a href="contact.html" class="header-nav-link">Contact</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <button type="button" class="header-action-btn" data-open-search aria-label="Open Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+
+        <a href="cart.html" class="header-action-btn" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-counter-chip" id="cartCount">0</span>
+        </a>
+
+        <button type="button" class="hamburger-trigger" id="hamburgerBtn" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="12" x2="20" y2="12"/><line x1="4" x2="20" y1="6" x2="6"/><line x1="4" x2="20" y1="18" x2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+      <div class="brand-title-wrap">
+        <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+      </div>
+      <button type="button" class="mobile-nav-close" id="mobileNavClose">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="products.html" class="mobile-nav-link">Shop All Products</a>
+      <a href="cart.html" class="mobile-nav-link active">Shopping Cart</a>
+      <a href="about.html" class="mobile-nav-link">About Us</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Store</a>
+    </div>
+  </aside>
+
+  <!-- Inner Page Hero -->
+  <section class="inner-page-hero">
+    <div class="container">
+      <div class="inner-hero-header">
+        <span class="editorial-kicker">01 / ORDER INVENTORY &bull; WHATSAPP CONFIRMATION</span>
+        <h1 class="editorial-title">Shopping Bag &amp; Enquiry</h1>
+        <p class="editorial-subtitle">
+          Review selected hardware, adjust quantities, and transmit your order enquiry directly to founder Amit Kumar on WhatsApp for verified stock and delivery confirmation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Page Main -->
+  <main class="cart-layout">
+    <div class="container">
+
+      <!-- Main Cart Layout -->
+      <div class="cart-grid-split" id="cartContentWrapper">
+
+        <!-- Left: Cart Items List -->
+        <div>
+          <div class="cart-items-wrapper" id="cartItemsList">
+            <!-- Dynamically populated cart items -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+            <a href="products.html" class="btn btn-secondary btn-sm">&larr; Continue Browsing</a>
+            <button type="button" class="btn-text" id="clearAllCartBtn" style="color: #E74C3C; font-size: 0.75rem;">Clear Entire Cart</button>
+          </div>
+        </div>
+
+        <!-- Right: Cart Summary & WhatsApp Checkout -->
+        <div>
+          <div class="cart-summary-card">
+            <h2 class="cart-summary-title">Order Overview</h2>
+
+            <div class="cart-summary-row">
+              <span>Selected Items:</span>
+              <strong id="summaryItemCount" style="color: var(--color-ink);">0</strong>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div id="confirmedSubtotalContainer">
+              <div class="cart-summary-row">
+                <span>Subtotal (Confirmed):</span>
+                <strong id="summarySubtotal" style="color: var(--color-teal); font-family: var(--font-mono);">₹0</strong>
+              </div>
+            </div>
+
+            <div class="cart-summary-row">
+              <span>Pan India Delivery:</span>
+              <span style="color: var(--color-ink-secondary); font-size: 0.85rem;">Calculated on WhatsApp</span>
+            </div>
+
+            <!-- Warning if any item has unknown price -->
+            <div class="unpriced-warning-box hidden" id="unpricedWarningBox">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <div>
+                <strong>Some items require price confirmation.</strong>
+                <p style="margin-top: 3px; font-size: 0.75rem;">Your cart contains items whose prices are verified on WhatsApp based on latest inventory and shipment size.</p>
+              </div>
+            </div>
+
+            <!-- Grand Total Row -->
+            <div class="cart-summary-row total-row" id="grandTotalRow">
+              <span>Estimated Total:</span>
+              <span id="summaryGrandTotal" style="color: var(--color-teal); font-family: var(--font-mono);">₹0</span>
+            </div>
+
+            <!-- Customer Contact Pre-fill -->
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; margin: 1.5rem 0;">
+              <div>
+                <label for="custNameInput" class="form-field-label">Your Name (Optional)</label>
+                <input type="text" id="custNameInput" class="form-input" placeholder="e.g. Rahul Sharma" />
+              </div>
+              <div>
+                <label for="custCityInput" class="form-field-label">City / Delivery Pincode (Optional)</label>
+                <input type="text" id="custCityInput" class="form-input" placeholder="e.g. Mumbai 400001" />
+              </div>
+              <div>
+                <label for="custNotesInput" class="form-field-label">Special Requests / Tank Specs</label>
+                <input type="text" id="custNotesInput" class="form-input" placeholder="e.g. Need extra biological ceramic rings" />
+              </div>
+            </div>
+
+            <!-- Primary Action: WhatsApp Order Enquiry -->
+            <button type="button" class="btn btn-whatsapp btn-full btn-lg" id="sendWhatsAppOrderBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z" />
+              </svg>
+              <span>Transmit Order on WhatsApp</span>
+            </button>
+
+            <p style="font-size: 0.75rem; color: var(--color-ink-muted); text-align: center; margin-top: 1rem; line-height: 1.5;">
+              Opens official WhatsApp chat with founder Amit Kumar (+91 95604 48232). No automatic card debit.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Empty Cart State -->
+      <div class="empty-results-box hidden" id="emptyCartView" style="margin: 3.5rem auto; max-width: 600px;">
+        <svg class="empty-results-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <h2 class="empty-results-title">Your shopping cart is currently empty</h2>
+        <p class="empty-results-desc">Explore our curated collection of canister filters, high-PAR lighting fixtures, Ohko stones, and botanical aquascaping essentials to start your enquiry.</p>
+        <a href="products.html" class="btn btn-primary btn-lg">Browse Catalogue</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Editorial Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-masthead" style="margin-bottom: 1.25rem;">
+            <div class="brand-monogram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 16s4.5-3 9.5-3 9.5 3"/><path d="M2 12s4.5-3 9.5-3 9.5 3"/><path d="M2 8s4.5-3 9.5-3 9.5 3"/></svg>
+            </div>
+            <div class="brand-title-wrap">
+              <span class="brand-name">SWIMWITHUS <span class="teal">AQUATICS</span></span>
+            </div>
+          </a>
+          <p class="footer-lead-text">
+            Serving hobbyists across India with genuine aquarium hardware, top sump filtration, canister units, and aquascaping essentials.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Navigation</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="index.html">Home</a></li>
+            <li class="footer-nav-item"><a href="products.html">All Products</a></li>
+            <li class="footer-nav-item"><a href="cart.html">Shopping Cart</a></li>
+            <li class="footer-nav-item"><a href="about.html">About Us</a></li>
+            <li class="footer-nav-item"><a href="contact.html">Contact Store</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Policies</h4>
+          <ul class="footer-nav-list" style="list-style: none;">
+            <li class="footer-nav-item"><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li class="footer-nav-item"><a href="return-policy.html">Return &amp; Refund Policy</a></li>
+            <li class="footer-nav-item"><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+            <li class="footer-nav-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-nav-heading">Store Location</h4>
+          <div class="footer-contact-block">
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>House No. 320, Gali 19A, Swatantra Nagar, Narela, Delhi – 110040</span>
+            </div>
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="https://wa.me/919560448232">+91 95604 48232</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal-bar">
+        <p>&copy; <span id="currentYear">2026</span> SwimWithUs Aquatics. Owner: Amit Kumar.</p>
+        <div class="footer-legal-links">
+          <a href="shipping-policy.html">Pan India Delivery</a>
+          <a href="return-policy.html">Return Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Search Catalogue">
+    <div class="search-modal-header">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="search-modal-input" id="globalSearchInput" placeholder="Search by name, model (e.g. AQ-16H)..." autocomplete="off">
+      <button type="button" class="search-modal-close" id="searchModalClose">&times;</button>
+    </div>
+    <div class="search-modal-body" id="globalSearchResults"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Cart Page Controller -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const itemsList = document.getElementById('cartItemsList');
+      const cartWrapper = document.getElementById('cartContentWrapper');
+      const emptyView = document.getElementById('emptyCartView');
+      const countEl = document.getElementById('summaryItemCount');
+      const subtotalEl = document.getElementById('summarySubtotal');
+      const grandTotalEl = document.getElementById('summaryGrandTotal');
+      const unpricedWarning = document.getElementById('unpricedWarningBox');
+      const clearBtn = document.getElementById('clearAllCartBtn');
+      const sendWhatsAppBtn = document.getElementById('sendWhatsAppOrderBtn');
+      const custName = document.getElementById('custNameInput');
+      const custCity = document.getElementById('custCityInput');
+      const custNotes = document.getElementById('custNotesInput');
+
+      function renderCartUI() {
+        const cart = getCart();
+
+        if (cart.length === 0) {
+          cartWrapper.classList.add('hidden');
+          emptyView.classList.remove('hidden');
+          return;
+        }
+
+        cartWrapper.classList.remove('hidden');
+        emptyView.classList.add('hidden');
+
+        // Render line items
+        let itemsHtml = '';
+        cart.forEach(item => {
+          const hasPrice = typeof item.price === 'number' && !isNaN(item.price);
+          const priceStr = hasPrice ? `₹${item.price.toLocaleString('en-IN')} each` : 'Enquire for Price';
+          const lineTotalStr = hasPrice ? `₹${(item.price * item.quantity).toLocaleString('en-IN')}` : 'Requires Confirmation';
+
+          itemsHtml += `
+            <div class="cart-item-card" data-id="${escapeHtml(item.id)}">
+              <a href="product-details.html?id=${encodeURIComponent(item.id)}" class="cart-item-img-link">
+                <img src="${item.image || 'https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?auto=format&fit=crop&w=400&q=80'}" alt="${escapeHtml(item.name)}" class="cart-item-img" />
+              </a>
+
+              <div class="cart-item-details-col">
+                <h3 class="cart-item-title">
+                  <a href="product-details.html?id=${encodeURIComponent(item.id)}">${escapeHtml(item.name)}</a>
+                </h3>
+                <div class="cart-item-meta">
+                  <span>Brand: <strong style="color: var(--color-ink);">${escapeHtml(item.brand || 'SwimWithUs')}</strong></span>
+                  ${item.model && item.model !== 'Standard' ? ` &bull; <span>Model: <strong style="color: var(--color-ink);">${escapeHtml(item.model)}</strong></span>` : ''}
+                </div>
+                <div class="cart-item-price-unit">
+                  ${priceStr}
+                </div>
+              </div>
+
+              <div class="cart-item-actions-col">
+                <div class="quantity-stepper" style="margin-right: 1rem;">
+                  <button type="button" class="qty-btn" onclick="updateCartQuantity('${escapeHtml(item.id)}', ${item.quantity - 1})" aria-label="Decrease">&minus;</button>
+                  <input type="number" class="qty-input" value="${item.quantity}" min="1" onchange="updateCartQuantity('${escapeHtml(item.id)}', this.value)" />
+                  <button type="button" class="qty-btn" onclick="updateCartQuantity('${escapeHtml(item.id)}', ${item.quantity + 1})" aria-label="Increase">&plus;</button>
+                </div>
+
+                <div style="text-align: right; min-width: 120px;">
+                  <div style="font-size: 1.05rem; font-weight: 800; color: var(--color-ink); font-family: var(--font-mono);">${lineTotalStr}</div>
+                  <button type="button" class="btn-text" style="color: #E74C3C; font-size: 0.75rem; margin-top: 0.25rem;" onclick="removeFromCart('${escapeHtml(item.id)}')">
+                    <span>Remove</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        itemsList.innerHTML = itemsHtml;
+
+        // Totals calculations
+        const totals = calculateCartTotals();
+        countEl.textContent = `${totals.itemCount} item${totals.itemCount === 1 ? '' : 's'}`;
+
+        if (totals.hasUnpricedItems) {
+          unpricedWarning.classList.remove('hidden');
+          if (totals.totalConfirmedPrice > 0) {
+            subtotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')}`;
+            grandTotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')} + enquiry items`;
+          } else {
+            subtotalEl.textContent = 'Enquire for Price';
+            grandTotalEl.textContent = 'Enquire for Price';
+          }
+        } else {
+          unpricedWarning.classList.add('hidden');
+          subtotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')}`;
+          grandTotalEl.textContent = `₹${totals.totalConfirmedPrice.toLocaleString('en-IN')}`;
+        }
+      }
+
+      window.addEventListener('cartUpdated', renderCartUI);
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          if (confirm('Are you sure you want to remove all items from your cart?')) {
+            clearCart();
+          }
+        });
+      }
+
+      if (sendWhatsAppBtn) {
+        sendWhatsAppBtn.addEventListener('click', () => {
+          const customerInfo = {
+            name: custName ? custName.value.trim() : '',
+            city: custCity ? custCity.value.trim() : '',
+            notes: custNotes ? custNotes.value.trim() : ''
+          };
+
+          const message = buildWhatsAppCartMessage(customerInfo);
+          if (!message) {
+            showToast('Your cart is empty.', 'error');
+            return;
+          }
+
+          openWhatsApp(message);
+        });
+      }
+
+      renderCartUI();
+    });
+  </script>
+</body>
+</html>
